@@ -182,7 +182,6 @@ export default class TicketService {
       // reserving seats via SeatReservationService
       new SeatReservationService().reserveSeat(accountId, totalTickets);
 
-      // console.log(`SUCCESS! Reservation completed with Seat(s) = ${totalTickets}, Amount = £${totalAmount}`);
       // return success/failure status if needed - based on payment and reservation service responses
     }
     catch (error) {
