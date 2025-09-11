@@ -27,3 +27,6 @@
 - The payment will always go through once a payment request has been made to the `TicketPaymentService`.
 - The `SeatReservationService` implementation is an external provider with no defects.
 - The seat will always be reserved once a reservation request has been made to the `SeatReservationService`.
+
+### Run the tests
+`npm run test`
