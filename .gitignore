@@ -1,3 +1,10 @@
+how2run.txt
+*.bk
+*-copy.js
+package-lock.json
+yarn.lock
+*jest.config.json
+
 # Logs
 logs
 *.log
