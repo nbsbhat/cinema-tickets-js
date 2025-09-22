@@ -14,6 +14,14 @@ describe('TicketService', () => {
             service = new TicketService();
         });
 
+        it('FAMILY type ticket - should throw error ', () => {
+            expect(() => {
+                service.purchaseTickets(1, { FAMILY: 1 });
+            })
+            .to.throw(InvalidPurchaseException);
+        });
+
+
         it('should throw exception when accountId is not a valid/positive integer', () => {
             const invalidAccountIds = [-100, 0, 1.5, 'a', {}, []];
             invalidAccountIds.map((accountId) => {

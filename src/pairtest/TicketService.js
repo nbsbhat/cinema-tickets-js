@@ -62,14 +62,19 @@ export default class TicketService {
   #parseRequestDetails(ticketRequests) {
     let ticketDetails = {};
 
-    ticketRequests.map((request) => {
-      for (const [key, value] of Object.entries(request)) {
-        let ticket = new TicketTypeRequest(key, value);
-        ticketDetails[ticket.getTicketType()] = ticketDetails[ticket.getTicketType()] ?
-          ticketDetails[ticket.getTicketType()] + ticket.getNoOfTickets() :
-          ticket.getNoOfTickets();
-      }
-    });
+    try {
+      ticketRequests.map((request) => {
+        for (const [key, value] of Object.entries(request)) {
+          let ticket = new TicketTypeRequest(key, value);
+          ticketDetails[ticket.getTicketType()] = ticketDetails[ticket.getTicketType()] ?
+            ticketDetails[ticket.getTicketType()] + ticket.getNoOfTickets() :
+            ticket.getNoOfTickets();
+        }
+      });
+    }
+    catch (error) {
+      throw new InvalidPurchaseException('Invalid ticket request format');
+    }
     return ticketDetails;
   }
 
